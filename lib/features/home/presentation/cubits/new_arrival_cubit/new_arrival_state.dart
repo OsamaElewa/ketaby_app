@@ -1,6 +1,7 @@
 
 
-import '../../../data/models/new_arrival_model.dart';
+import 'package:ketaby/features/books_view/data/models/book_model.dart';
+
 
 abstract class NewArrivalState {}
 
@@ -9,7 +10,7 @@ class NewArrivalInitialState extends NewArrivalState {}
 class NewArrivalLoadingState extends NewArrivalState {}
 
 class NewArrivalSuccessState extends NewArrivalState {
-  final NewArrivalModel newArrivalModel;
+  final BookModel newArrivalModel;
 
 NewArrivalSuccessState(this.newArrivalModel);
 }

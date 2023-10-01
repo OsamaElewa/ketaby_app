@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
+import 'package:ketaby/features/books_view/data/models/book_model.dart';
 import '../../../../../core/errors/failures.dart';
-import '../../models/new_arrival_model.dart';
 
 abstract class  NewArrivalRepository {
 
-  Future<Either<Failure, NewArrivalModel>> getNewArrival();
+  Future<Either<Failure, BookModel>> getNewArrival();
 }

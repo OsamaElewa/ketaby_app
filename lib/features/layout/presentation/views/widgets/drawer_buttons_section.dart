@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:ketaby/features/books_view/books_view.dart';
+import 'package:ketaby/features/books_view/presentation/views/books_view.dart';
 import 'package:ketaby/features/cart_view/cart_view.dart';
 import 'package:ketaby/features/favourites_view/favourites_view.dart';
-import 'package:ketaby/features/profile_view/profile_view.dart';
 
 import '../../../../../config/icons/icons_broken.dart';
+import '../../../../profile/presentation/views/profile_view.dart';
 import '../../cubits/animated_drawer_cubit/animated_drawer_cubit.dart';
 import 'drawer_buttons_section_item.dart';
 
@@ -29,7 +29,7 @@ class DrawerButtonsSection extends StatelessWidget {
           onTap: () {
             Navigator.push(context, MaterialPageRoute(
               builder: (context) {
-                return const BooksView();
+                return  BooksView();
               },
             ));
             AnimatedDrawerCubit.get(context).closeDrawer();

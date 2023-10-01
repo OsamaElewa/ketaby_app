@@ -6,10 +6,11 @@ class EndPoints {
   static const String bestseller = 'products-bestseller';
   static const String category = 'categories';
   static const String newarrival = 'products-new-arrivals';
+  static const String books = 'products';
+  static const String getUserProfile = 'profile';
   static const String getRandomSpecializations = 'home/index';
   static const String getAllSpecializations = 'specialization/index';
   static const String getAllDoctors = 'doctor/index';
-  static const String getUserProfile = 'user/profile';
   static const String getAllAppointment = 'appointment/index';
   static const String bookAppointment = '/appointment/store';
 }

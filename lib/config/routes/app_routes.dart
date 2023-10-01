@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ketaby/features/books_view/presentation/views/books_view.dart';
 import 'package:ketaby/features/layout/presentation/views/animated_drawer_view.dart';
 
 import '../../core/animations/page_fade_transition.dart';
@@ -22,6 +23,7 @@ class Routes {
   static const String registerView = '/register_view';
   static const String loginView = '/login_view';
   static const String layoutView = '/layout_view';
+  static const String bookView = '/book_view';
   static const String doctorDetailsView = '/doctor_details_view';
   static const String specializationView = '/specialization_view';
   static const String searchView = '/search_view';
@@ -61,7 +63,6 @@ class AppRoutes {
             child: const RegisterView(),
           ),
         );
-
       case Routes.layoutView:
         return PageFadeTransition(
           page: const AnimatedDrawerView(),

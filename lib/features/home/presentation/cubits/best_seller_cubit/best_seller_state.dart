@@ -1,6 +1,6 @@
 
-import '../../../data/models/best_seller_model.dart';
-import '../../../data/models/slider_model.dart';
+import 'package:ketaby/features/books_view/data/models/book_model.dart';
+
 
 abstract class BestSellerState {}
 
@@ -9,7 +9,7 @@ class BestSellerInitialState extends BestSellerState {}
 class BestSellerLoadingState extends BestSellerState {}
 
 class BestSellerSuccessState extends BestSellerState {
-  final BestSellerModel bestSellerModel;
+  final BookModel bestSellerModel;
 
   BestSellerSuccessState(this.bestSellerModel);
 }

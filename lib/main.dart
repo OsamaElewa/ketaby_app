@@ -2,16 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ketaby/core/api/api_services_implementation.dart';
+import 'package:ketaby/features/books_view/data/repository/book_repository_implementation.dart';
+import 'package:ketaby/features/books_view/presentation/cubits/book_cubit.dart';
 import 'package:ketaby/features/home/data/repository/best_seller_repository/best_seller_repository_implementation.dart';
 import 'package:ketaby/features/home/data/repository/category_repository/category_repository_implementation.dart';
 import 'package:ketaby/features/home/data/repository/new_arrival_repository/new_arrival_repository_implementation.dart';
-import 'package:ketaby/features/home/data/repository/slider_repository/slider_repository.dart';
 import 'package:ketaby/features/home/data/repository/slider_repository/slider_repository_implementation.dart';
 import 'package:ketaby/features/home/presentation/cubits/best_seller_cubit/best_seller_cubit.dart';
 import 'package:ketaby/features/home/presentation/cubits/category_cubit/category_cubit.dart';
 import 'package:ketaby/features/home/presentation/cubits/new_arrival_cubit/new_arrival_cubit.dart';
 import 'package:ketaby/features/home/presentation/cubits/slider_cubit/slider_cubit.dart';
 import 'package:ketaby/features/layout/presentation/cubits/animated_drawer_cubit/animated_drawer_cubit.dart';
+import 'package:ketaby/features/profile/data/repositry/profile_repository_implementation.dart';
+import 'package:ketaby/features/profile/presentation/cubits/get_user_profile_cubit.dart';
 
 import 'config/local/cache_helper.dart';
 import 'config/routes/app_routes.dart';
@@ -48,7 +51,9 @@ class MyApp extends StatelessWidget {
               create: (context) => CategoryCubit(CategoryRepositoryImplementation(ApiServicesImplementation()))..getCategory(),),
             BlocProvider(
               create: (context) => NewArrivalCubit(NewArrivalRepositoryImplementation(ApiServicesImplementation()))..getNewArrival(),),
-            BlocProvider(create: (context) => NewArrivalCubit(NewArrivalRepositoryImplementation(ApiServicesImplementation()))..getNewArrival(),)
+            BlocProvider(create: (context) => NewArrivalCubit(NewArrivalRepositoryImplementation(ApiServicesImplementation()))..getNewArrival(),),
+            BlocProvider(create: (context) => BookCubit(BookRepositoryImplementation(ApiServicesImplementation()))..getBook(),),
+            BlocProvider(create: (context) => GetUserProfileCubit(ProfileRepositoryImplementation(ApiServicesImplementation()))..getUserProfile(),)
           ],
           child: MaterialApp(
             title: 'Tasks',

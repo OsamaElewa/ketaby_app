@@ -25,10 +25,10 @@ class LoginViewBody extends StatelessWidget {
       listener: (context, state) {
         if (state is LoginSuccessState) {
           if (LoginCubit.get(context).keepMeLoggedIn) {
-            // CacheHelper.setString(
-            //   key: 'token',
-            //   value: LoginCubit.get(context).loginModel!.data!.token!,
-            // );
+            CacheHelper.setString(
+              key: 'token',
+              value: LoginCubit.get(context).loginModel!.data!.token!,
+            );
             AppConstants.token = state.authenticationModel.data!.token!;
           } else {
             AppConstants.token = state.authenticationModel.data!.token!;
