@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ketaby/config/icons/icons_broken.dart';
 import 'package:ketaby/core/utils/app_styles.dart';
+import 'package:ketaby/features/books_view/presentation/cubits/book_cubit.dart';
 import 'package:ketaby/features/books_view/presentation/views/book_details.dart';
 
 import '../../../../../core/utils/app_colors.dart';
@@ -56,11 +57,15 @@ class BooksListItem extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
                         IconButton(
-                            onPressed: (){},
+                            onPressed: (){
+                              BookCubit.get(context).addToFav(productId: '${products.id!}');
+                            },
                             icon: Icon(IconBroken.Heart,color: Colors.indigo,)),
                         const Spacer(),
                         IconButton(
-                            onPressed: (){},
+                            onPressed: (){
+                              BookCubit.get(context).addToCart(productId: '${products.id!}');
+                            },
                             icon: Icon(IconBroken.Buy,color: Colors.indigo,)),
                       ],
                     )

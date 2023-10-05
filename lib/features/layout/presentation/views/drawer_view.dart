@@ -13,7 +13,7 @@ class DrawerView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: AppColors.deepPurple,
+      color: AppColors.indigo,
       height: double.infinity,
       width: double.infinity,
       child: Padding(

@@ -5,7 +5,9 @@ import 'package:flutter/services.dart';
 import 'app_colors.dart';
 
 class AppConstants {
+  static int govid = 1;
   static String token = '';
+  static int dropdownvalue= 1;
   static const String path = 'assets/images/';
   static final double defaultPadding = 12.h;
   static final double defaultPaddingW = 12.w;

@@ -57,7 +57,7 @@ class HomeViewBody extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('Best Seller',style: AppStyles.textStyle20),
+                      Text('Categories',style: AppStyles.textStyle20),
                       IconButton(
                           onPressed: (){},
                           icon:const Icon( IconBroken.Arrow___Right))
@@ -67,7 +67,7 @@ class HomeViewBody extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('Best Seller',style: AppStyles.textStyle20),
+                      Text('New Arrival',style: AppStyles.textStyle20),
                       IconButton(
                           onPressed: (){},
                           icon:const Icon( IconBroken.Arrow___Right))
