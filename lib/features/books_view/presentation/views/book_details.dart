@@ -8,6 +8,7 @@ import 'package:ketaby/features/books_view/presentation/cubits/add_to_state.dart
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 import '../../../../core/functions/show_snack_bar.dart';
+import '../../../cart_view/presentation/cubits/cart_cubit.dart';
 import '../../data/models/book_model.dart';
 
 class BookDetails extends StatelessWidget {
@@ -118,7 +119,9 @@ class BookDetails extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 20,right: 20,bottom: 10,top: 10),
                 child: GradientButton(
                     onPressed: (){
-                      AddToCubit.get(context).addToCart(productId: '${products.id!}');
+                      AddToCubit.get(context).addToCart(productId: '${products.id!}').then((value) {
+                        CartCubit.get(context).getCart();
+                      });
                     },
                     title: 'Add to cart'),
               )

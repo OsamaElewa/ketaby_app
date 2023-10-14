@@ -30,40 +30,4 @@ class CartCubit extends Cubit<CartState> {
       emit(CartSuccessState(cartModel));
     });
   }
-
-
-  CartModel? removeCartModel;
-
-  Future<void> removeFromCart({required String productId}) async {
-    emit(RemoveCartLoadingState());
-    Either<Failure, CartModel> result;
-    result = await cartRepository.deleteFromCart(productId: productId);
-    result.fold((failure) {
-      print(failure.error);
-      emit(RemoveCartFailureState(failure.error));
-      getCart();
-    }, (removeCartModel) {
-      this.removeCartModel = removeCartModel;
-      emit(RemoveCartSuccessState(removeCartModel));
-      getCart();
-    });
-  }
-
-
-  CartModel? updateCartModel;
-
-  Future<void> updateFromCart({required String productId,required String quantity}) async {
-    emit(UpdateCartLoadingState());
-    Either<Failure, CartModel> result;
-    result = await cartRepository.updateCart(productId: productId, quantity: quantity);
-    result.fold((failure) {
-      print(failure.error);
-      emit(UpdateCartFailureState(failure.error));
-      getCart();
-    }, (updateCartModel) {
-      this.updateCartModel = updateCartModel;
-      emit(UpdateCartSuccessState(updateCartModel));
-      getCart();
-    });
-  }
 }

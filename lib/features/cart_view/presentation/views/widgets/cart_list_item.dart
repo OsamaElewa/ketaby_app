@@ -4,6 +4,8 @@ import 'package:ketaby/features/cart_view/data/models/cart_model.dart';
 import 'package:ketaby/features/cart_view/presentation/cubits/cart_cubit.dart';
 
 import '../../../../../core/utils/app_colors.dart';
+import '../../cubits/remove_from_cart_cubit/remove_from_cart_cubit.dart';
+import '../../cubits/update_cart_cubit/update_cart_cubit.dart';
 
 class CartListItem extends StatelessWidget {
   const CartListItem({Key? key,required this.cartItems}) : super(key: key);
@@ -44,7 +46,14 @@ class CartListItem extends StatelessWidget {
               children: [
                 IconButton(
                     onPressed: (){
-                      CartCubit.get(context).removeFromCart(productId: '${cartItems.itemId!}');
+                      RemoveFromCartCubit.get(context)
+                          .removeFromCart(
+                          bookId: cartItems.itemId.toString(),
+                          context: context)
+                          .then((value) {
+                            CartCubit.get(context).getCart();
+                      });
+                      //CartCubit.get(context).removeFromCart(productId: '${cartItems.itemId!}');
                     },
                     icon: const Icon(IconBroken.Delete,color: Colors.red,)),
                 const Spacer(),
@@ -53,7 +62,15 @@ class CartListItem extends StatelessWidget {
                     InkWell(
                       onTap: () {
                         if(cartItems.itemQuantity! >1){
-                          CartCubit.get(context).updateFromCart(productId: '${cartItems.itemId}', quantity: '${cartItems.itemQuantity! -1}');
+                          UpdateCartCubit.get(context)
+                              .updateCart(
+                            bookId: cartItems.itemId.toString(),
+                            quantity: (cartItems.itemQuantity! - 1).toString(),
+                          )
+                              .then((value) {
+                                CartCubit.get(context).getCart();
+                          });
+                          //CartCubit.get(context).updateFromCart(productId: '${cartItems.itemId}', quantity: '${cartItems.itemQuantity! -1}');
                         }
                       },
                         child: Icon(Icons.remove,size: 25,color: Colors.red,)),
@@ -63,9 +80,17 @@ class CartListItem extends StatelessWidget {
                     ),
                     InkWell(
                       onTap: (){
-                        CartCubit.get(context).updateFromCart(productId: '${cartItems.itemId}', quantity: '${cartItems.itemQuantity! +1}');
+                        UpdateCartCubit.get(context)
+                            .updateCart(
+                          bookId: cartItems.itemId.toString(),
+                          quantity: (cartItems.itemQuantity! + 1).toString(),
+                        )
+                            .then((value) {
+                          CartCubit.get(context).getCart();
+                        });
+                        //CartCubit.get(context).updateFromCart(productId: '${cartItems.itemId}', quantity: '${cartItems.itemQuantity! +1}');
                       },
-                        child: Icon(Icons.add,size: 25,color: Colors.indigo,))
+                        child: const Icon(Icons.add,size: 25,color: Colors.indigo,))
 
                   ],
                 )

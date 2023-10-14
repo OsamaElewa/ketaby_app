@@ -74,7 +74,7 @@ class MyApp extends StatelessWidget {
             BlocProvider(
               create: (context) => GetUserProfileCubit(ProfileRepositoryImplementation(ApiServicesImplementation()))..getUserProfile(),),
             BlocProvider(
-              create: (context) => CartCubit(CartRepositoryImplementation(ApiServicesImplementation()))..getCart(),),
+              create: (context) => CartCubit(CartRepositoryImplementation(ApiServicesImplementation()))),
             BlocProvider(
               create: (context) => GovernoratesCubit(GovernoratesRepositoryImplementation(ApiServicesImplementation()))..getGovernorates(),),
             // BlocProvider(

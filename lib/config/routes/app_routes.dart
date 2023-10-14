@@ -12,6 +12,10 @@ import '../../features/authentication/presentation/cubits/login_cubit/login_cubi
 import '../../features/authentication/presentation/cubits/register_cubit/register_cubit.dart';
 import '../../features/authentication/presentation/views/login_view.dart';
 import '../../features/authentication/presentation/views/register_view.dart';
+import '../../features/cart_view/data/repository/cart_repository_implementation.dart';
+import '../../features/cart_view/presentation/cubits/remove_from_cart_cubit/remove_from_cart_cubit.dart';
+import '../../features/cart_view/presentation/cubits/update_cart_cubit/update_cart_cubit.dart';
+import '../../features/cart_view/presentation/views/cart_view.dart';
 import '../../features/onboarding/presentation/cubit/onboarding_cubit.dart';
 import '../../features/onboarding/presentation/views/onboarding_view.dart';
 import '../../features/splash/presentation/views/splash_view.dart';
@@ -24,6 +28,7 @@ class Routes {
   static const String loginView = '/login_view';
   static const String layoutView = '/layout_view';
   static const String bookView = '/book_view';
+  static const String cartView = '/cart_view';
   static const String doctorDetailsView = '/doctor_details_view';
   static const String specializationView = '/specialization_view';
   static const String searchView = '/search_view';
@@ -66,6 +71,24 @@ class AppRoutes {
       case Routes.layoutView:
         return PageFadeTransition(
           page: const AnimatedDrawerView(),
+        );
+      case Routes.cartView:
+        return PageSlideTransition(
+          direction: AxisDirection.left,
+          page: MultiBlocProvider(providers: [
+            BlocProvider(
+              create: (context) =>
+                  UpdateCartCubit(
+                    CartRepositoryImplementation(ApiServicesImplementation()),
+                  ),
+            ),
+            BlocProvider(
+              create: (context) =>
+                  RemoveFromCartCubit(
+                    CartRepositoryImplementation(ApiServicesImplementation()),
+                  ),
+            ),
+          ], child: const CartView()),
         );
     }
     return undefinedRoute();

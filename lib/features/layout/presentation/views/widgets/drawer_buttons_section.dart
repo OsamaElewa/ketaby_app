@@ -5,6 +5,7 @@ import 'package:ketaby/features/favorite_view/presentation/views/favorite_view.d
 import 'package:ketaby/features/history_view/presentation/views/history_view.dart';
 
 import '../../../../../config/icons/icons_broken.dart';
+import '../../../../../config/routes/app_routes.dart';
 import '../../../../profile/presentation/views/profile_view.dart';
 import '../../cubits/animated_drawer_cubit/animated_drawer_cubit.dart';
 import 'drawer_buttons_section_item.dart';
@@ -52,11 +53,7 @@ class DrawerButtonsSection extends StatelessWidget {
           title: 'Cart',
           icon: IconBroken.Buy,
           onTap: () {
-            Navigator.push(context, MaterialPageRoute(
-              builder: (context) {
-                return const CartView();
-              },
-            ));
+            Navigator.pushNamed(context, Routes.cartView);
             AnimatedDrawerCubit.get(context).closeDrawer();
           },
         ),

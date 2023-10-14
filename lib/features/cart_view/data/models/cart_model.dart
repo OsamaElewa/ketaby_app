@@ -23,7 +23,7 @@ class Data {
   Data.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     user = json['user'] != null ? User.fromJson(json['user']) : null;
-    total = json['total'];
+    total = json['total'].toString();
     if (json['cart_items'] != null) {
       cartItems = <CartItems>[];
       json['cart_items'].forEach((v) {

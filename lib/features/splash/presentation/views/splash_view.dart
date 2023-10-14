@@ -21,10 +21,10 @@ class _SplashViewState extends State<SplashView> {
     navigateToOnBoardingView();
     super.initState();
   }
-
+//CacheHelper.getBoolean(key: 'onBoarding') ??
   void navigateToOnBoardingView() {
     Future.delayed(const Duration(seconds: 2)).then((value) {
-      if (CacheHelper.getBoolean(key: 'onBoarding') ?? false) {
+      if (false) {
         if (AppConstants.token.isNotEmpty) {
          // return Navigator.pushReplacementNamed(context, Routes.layoutView);
         } else {
