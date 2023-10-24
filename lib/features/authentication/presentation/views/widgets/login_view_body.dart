@@ -76,7 +76,7 @@ class LoginViewBody extends StatelessWidget {
                           LoginCubit.get(context).userLogin();
                         }
                       },
-                      title: AppStrings.login,
+                      title: Text(AppStrings.login),
                     ),
                   ],
                 ),

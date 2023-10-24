@@ -18,6 +18,11 @@ import '../../features/cart_view/presentation/cubits/update_cart_cubit/update_ca
 import '../../features/cart_view/presentation/views/cart_view.dart';
 import '../../features/onboarding/presentation/cubit/onboarding_cubit.dart';
 import '../../features/onboarding/presentation/views/onboarding_view.dart';
+import '../../features/profilee/data/model/profile_model.dart';
+import '../../features/profilee/data/repository/profile_repository_implementation.dart';
+import '../../features/profilee/presentation/cubits/update_user_profile_cubit/update_user_profile_cubit.dart';
+import '../../features/profilee/presentation/views/profile_view.dart';
+import '../../features/profilee/presentation/views/update_profile_view.dart';
 import '../../features/splash/presentation/views/splash_view.dart';
 
 
@@ -29,6 +34,8 @@ class Routes {
   static const String layoutView = '/layout_view';
   static const String bookView = '/book_view';
   static const String cartView = '/cart_view';
+  static const String profileView = '/profile_view';
+  static const String updateProfileView = '/update_profile_view';
   static const String doctorDetailsView = '/doctor_details_view';
   static const String specializationView = '/specialization_view';
   static const String searchView = '/search_view';
@@ -89,6 +96,21 @@ class AppRoutes {
                   ),
             ),
           ], child: const CartView()),
+        );
+      case Routes.profileView:
+        return PageSlideTransition(
+          direction: AxisDirection.left,
+          page: const ProfileView(),
+        );
+      case Routes.updateProfileView:
+        final profileModel = settings.arguments as ProfileModel;
+        return PageSlideTransition(
+          direction: AxisDirection.left,
+          page: BlocProvider(
+              create: (context) =>
+                  UpdateUserProfileCubit(
+                      ProfileRepositoryImplementation(ApiServicesImplementation())),
+              child: UpdateProfileView(profileModel: profileModel,)),
         );
     }
     return undefinedRoute();

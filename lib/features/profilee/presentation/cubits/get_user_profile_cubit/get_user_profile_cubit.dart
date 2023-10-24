@@ -1,14 +1,15 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ketaby/core/errors/failures.dart';
 
-import '../../../../core/errors/failures.dart';
-import '../../data/model/profile_model.dart';
-import '../../data/repositry/profile_repository.dart';
+import '../../../data/model/profile_model.dart';
+import '../../../data/repository/profile_repository.dart';
 import 'get_user_profile_state.dart';
 
 
 class GetUserProfileCubit extends Cubit<GetUserProfileState> {
-  GetUserProfileCubit(this.profileRepository) : super(GetUserProfileInitialState());
+  GetUserProfileCubit(this.profileRepository)
+      : super(GetUserProfileInitialState());
 
   final ProfileRepository profileRepository;
 
@@ -21,7 +22,6 @@ class GetUserProfileCubit extends Cubit<GetUserProfileState> {
     Either<Failure, ProfileModel> result;
     result = await profileRepository.getUserProfile();
     result.fold((failure) {
-      print(failure.error);
       emit(GetUserProfileFailureState(failure.error));
     }, (profileModel) {
       this.profileModel = profileModel;

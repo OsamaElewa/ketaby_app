@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:ketaby/features/books_view/presentation/views/books_view.dart';
-import 'package:ketaby/features/cart_view/presentation/views/cart_view.dart';
 import 'package:ketaby/features/favorite_view/presentation/views/favorite_view.dart';
 import 'package:ketaby/features/history_view/presentation/views/history_view.dart';
 
 import '../../../../../config/icons/icons_broken.dart';
 import '../../../../../config/routes/app_routes.dart';
-import '../../../../profile/presentation/views/profile_view.dart';
 import '../../cubits/animated_drawer_cubit/animated_drawer_cubit.dart';
 import 'drawer_buttons_section_item.dart';
 
@@ -73,11 +71,7 @@ class DrawerButtonsSection extends StatelessWidget {
           title: 'Profile',
           icon: IconBroken.Profile,
           onTap: () {
-            Navigator.push(context, MaterialPageRoute(
-              builder: (context) {
-                return const ProfileView();
-              },
-            ));
+            Navigator.pushNamed(context, Routes.profileView);
             AnimatedDrawerCubit.get(context).closeDrawer();
           },
         ),

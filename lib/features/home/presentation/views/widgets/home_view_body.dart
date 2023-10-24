@@ -9,15 +9,6 @@ import '../../../../../core/widgets/custom_app_bar.dart';
 import 'category_widget/category_list_view.dart';
 import 'new_arrival_widget/new_arrival_list_view.dart';
 
-
-List<String> banners = [
-  'assets/images/user.png',
-  'assets/images/user.png',
-  'assets/images/user.png',
-  'assets/images/user.png',
-  'assets/images/user.png',
-];
-
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({Key? key}) : super(key: key);
 
@@ -31,10 +22,7 @@ class HomeViewBody extends StatelessWidget {
             InkWell(
               onTap: () {
               },
-              child: const CustomAppBar(
-                isUser: true,
-                rightWidget: Text(''),
-              ),
+              child: const CustomAppBar(),
             ),
             const SizedBox(height: 10,),
               Padding(

@@ -24,4 +24,5 @@ class EndPoints {
   static const String getAllDoctors = 'doctor/index';
   static const String getAllAppointment = 'appointment/index';
   static const String bookAppointment = '/appointment/store';
+  static const String updateUserProfile = 'update-profile';
 }

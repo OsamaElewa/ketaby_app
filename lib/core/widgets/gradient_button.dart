@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../utils/app_colors.dart';
-import '../utils/app_styles.dart';
-
+import 'package:ketaby/core/utils/app_colors.dart';
 
 class GradientButton extends StatelessWidget {
   const GradientButton({
@@ -14,7 +11,7 @@ class GradientButton extends StatelessWidget {
   }) : super(key: key);
 
   final VoidCallback? onPressed;
-  final String title;
+  final Widget title;
   final double? radius;
 
   @override
@@ -32,10 +29,7 @@ class GradientButton extends StatelessWidget {
           )),
       child: MaterialButton(
         onPressed: onPressed,
-        child: Text(
-          title,
-          style: AppStyles.textStyle16.copyWith(color: AppColors.white),
-        ),
+        child: title,
       ),
     );
   }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ketaby/features/authentication/presentation/views/widgets/register_texts_fields_section.dart';
-import 'package:ketaby/features/authentication/presentation/views/widgets/user_gender_group.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 import '../../../../../config/routes/app_routes.dart';
@@ -58,7 +57,7 @@ class RegisterViewBody extends StatelessWidget {
                         },
                       ),
                       GradientButton(
-                        title: AppStrings.register,
+                        title: Text(AppStrings.register),
                         onPressed: () {
                           if (RegisterCubit.get(context)
                               .formKey

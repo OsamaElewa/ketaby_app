@@ -123,7 +123,7 @@ class BookDetails extends StatelessWidget {
                         CartCubit.get(context).getCart();
                       });
                     },
-                    title: 'Add to cart'),
+                    title: Text('Add to cart')),
               )
             ],
           ),

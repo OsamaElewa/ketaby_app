@@ -1,5 +1,5 @@
 
-import '../../data/model/profile_model.dart';
+import '../../../data/model/profile_model.dart';
 
 abstract class GetUserProfileState {}
 

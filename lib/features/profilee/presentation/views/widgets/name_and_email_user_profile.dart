@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-
-import '../../../../../core/utils/app_colors.dart';
-import '../../../../../core/utils/app_constants.dart';
-import '../../../../../core/utils/app_styles.dart';
+import 'package:ketaby/core/utils/app_colors.dart';
+import 'package:ketaby/core/utils/app_constants.dart';
+import 'package:ketaby/core/utils/app_styles.dart';
 
 class NameAndEmailUserProfile extends StatelessWidget {
   const NameAndEmailUserProfile(

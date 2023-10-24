@@ -12,6 +12,7 @@ class AppConstants {
   static final double defaultPadding = 12.h;
   static final double defaultPaddingW = 12.w;
   static final double padding15h = 15.h;
+  static final double padding25h = 25.h;
   static final double padding50h = 50.h;
   static final double padding45h = 45.h;
   static final double padding10h = 10.h;
@@ -24,7 +25,9 @@ class AppConstants {
   static final double padding8h = 8.h;
   static final double padding5h = 5.h;
   static final double padding3h = 3.h;
+  static final double radius5sp = 5.sp;
   static final double radius15w = 15.w;
+  static final double radius8sp = 8.sp;
   static final double radius8w = 8.w;
   static final double radius10w = 10.w;
   static final double radius5w = 5.w;

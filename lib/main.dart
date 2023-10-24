@@ -8,16 +8,11 @@ import 'package:ketaby/features/books_view/presentation/cubits/add_to_cubit.dart
 import 'package:ketaby/features/books_view/presentation/cubits/book_cubit.dart';
 import 'package:ketaby/features/cart_view/data/repository/cart_repository_implementation.dart';
 import 'package:ketaby/features/cart_view/presentation/cubits/cart_cubit.dart';
-import 'package:ketaby/features/check_out_view/data/repository/check_out_repository/check_out_repository_implementation.dart';
 import 'package:ketaby/features/check_out_view/data/repository/governorates_repository/governorates_repository_implementation.dart';
 import 'package:ketaby/features/check_out_view/data/repository/order_repository/order_repository_implementation.dart';
-import 'package:ketaby/features/check_out_view/presentation/cubits/check_out_user_cubit/check_out_user_cubit.dart';
 import 'package:ketaby/features/check_out_view/presentation/cubits/governorates_cubit/governorates_cubit.dart';
 import 'package:ketaby/features/check_out_view/presentation/cubits/order_cubit/order_cubit.dart';
-import 'package:ketaby/features/favorite_view/data/repository/favorite_repository_implementation.dart';
-import 'package:ketaby/features/favorite_view/presentation/cubits/favorite_cubit.dart';
-import 'package:ketaby/features/history_view/data/repository/history_repository_implementation.dart';
-import 'package:ketaby/features/history_view/presentation/cubits/history_cubit.dart';
+
 import 'package:ketaby/features/home/data/repository/best_seller_repository/best_seller_repository_implementation.dart';
 import 'package:ketaby/features/home/data/repository/category_repository/category_repository_implementation.dart';
 import 'package:ketaby/features/home/data/repository/new_arrival_repository/new_arrival_repository_implementation.dart';
@@ -27,14 +22,15 @@ import 'package:ketaby/features/home/presentation/cubits/category_cubit/category
 import 'package:ketaby/features/home/presentation/cubits/new_arrival_cubit/new_arrival_cubit.dart';
 import 'package:ketaby/features/home/presentation/cubits/slider_cubit/slider_cubit.dart';
 import 'package:ketaby/features/layout/presentation/cubits/animated_drawer_cubit/animated_drawer_cubit.dart';
-import 'package:ketaby/features/profile/data/repositry/profile_repository_implementation.dart';
-import 'package:ketaby/features/profile/presentation/cubits/get_user_profile_cubit.dart';
+
 
 import 'config/local/cache_helper.dart';
 import 'config/routes/app_routes.dart';
 import 'config/themes/app_theme.dart';
 import 'core/utils/app_constants.dart';
 import 'features/bloc_observer.dart';
+import 'features/profilee/data/repository/profile_repository_implementation.dart';
+import 'features/profilee/presentation/cubits/get_user_profile_cubit/get_user_profile_cubit.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
