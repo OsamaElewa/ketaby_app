@@ -4,8 +4,9 @@ import 'package:ketaby/core/utils/app_colors.dart';
 import 'package:ketaby/core/utils/app_constants.dart';
 import 'package:ketaby/core/utils/app_styles.dart';
 
-import '../../../../profilee/presentation/cubits/get_user_profile_cubit/get_user_profile_cubit.dart';
-import '../../../../profilee/presentation/cubits/get_user_profile_cubit/get_user_profile_state.dart';
+
+import '../../../../profile/presentation/cubits/get_user_profile_cubit/get_user_profile_cubit.dart';
+import '../../../../profile/presentation/cubits/get_user_profile_cubit/get_user_profile_state.dart';
 import 'drawer_user_photp.dart';
 
 class DrawerUserData extends StatelessWidget {

@@ -22,6 +22,7 @@ import 'package:ketaby/features/home/presentation/cubits/category_cubit/category
 import 'package:ketaby/features/home/presentation/cubits/new_arrival_cubit/new_arrival_cubit.dart';
 import 'package:ketaby/features/home/presentation/cubits/slider_cubit/slider_cubit.dart';
 import 'package:ketaby/features/layout/presentation/cubits/animated_drawer_cubit/animated_drawer_cubit.dart';
+import 'package:ketaby/features/profile/data/repository/profile_repository.dart';
 
 
 import 'config/local/cache_helper.dart';
@@ -29,8 +30,9 @@ import 'config/routes/app_routes.dart';
 import 'config/themes/app_theme.dart';
 import 'core/utils/app_constants.dart';
 import 'features/bloc_observer.dart';
-import 'features/profilee/data/repository/profile_repository_implementation.dart';
-import 'features/profilee/presentation/cubits/get_user_profile_cubit/get_user_profile_cubit.dart';
+import 'features/profile/data/repository/profile_repository_implementation.dart';
+import 'features/profile/presentation/cubits/get_user_profile_cubit/get_user_profile_cubit.dart';
+
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();

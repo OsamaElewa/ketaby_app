@@ -8,8 +8,9 @@ import 'package:ketaby/core/widgets/user_image.dart';
 
 import '../../features/layout/presentation/cubits/animated_drawer_cubit/animated_drawer_cubit.dart';
 import '../../features/layout/presentation/cubits/animated_drawer_cubit/animated_drawer_state.dart';
-import '../../features/profilee/presentation/cubits/get_user_profile_cubit/get_user_profile_cubit.dart';
-import '../../features/profilee/presentation/cubits/get_user_profile_cubit/get_user_profile_state.dart';
+import '../../features/profile/presentation/cubits/get_user_profile_cubit/get_user_profile_cubit.dart';
+import '../../features/profile/presentation/cubits/get_user_profile_cubit/get_user_profile_state.dart';
+
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({Key? key}) : super(key: key);

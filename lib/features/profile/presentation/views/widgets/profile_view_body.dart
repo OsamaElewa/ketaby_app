@@ -9,7 +9,7 @@ import 'package:ketaby/core/utils/app_styles.dart';
 import 'package:ketaby/core/widgets/custom_error_widget.dart';
 import 'package:ketaby/core/widgets/gradient_button.dart';
 import 'package:ketaby/core/widgets/loading_indicator_widget.dart';
-import 'package:ketaby/features/profilee/presentation/views/widgets/profile_item_widget.dart';
+import 'package:ketaby/features/profile/presentation/views/widgets/profile_item_widget.dart';
 
 import '../../cubits/get_user_profile_cubit/get_user_profile_cubit.dart';
 import '../../cubits/get_user_profile_cubit/get_user_profile_state.dart';

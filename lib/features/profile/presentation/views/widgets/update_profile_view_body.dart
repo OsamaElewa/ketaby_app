@@ -5,7 +5,7 @@ import 'package:ketaby/core/utils/app_constants.dart';
 import 'package:ketaby/core/utils/app_strings.dart';
 import 'package:ketaby/core/utils/app_styles.dart';
 import 'package:ketaby/core/widgets/gradient_button.dart';
-import 'package:ketaby/features/profilee/presentation/views/widgets/update_profile_texts_fields_section.dart';
+import 'package:ketaby/features/profile/presentation/views/widgets/update_profile_texts_fields_section.dart';
 
 import '../../../data/model/profile_model.dart';
 import '../../cubits/get_user_profile_cubit/get_user_profile_cubit.dart';

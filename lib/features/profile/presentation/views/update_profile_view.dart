@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:ketaby/core/utils/app_assets.dart';
 import 'package:ketaby/core/utils/app_colors.dart';
 import 'package:ketaby/core/utils/app_strings.dart';
 import 'package:ketaby/core/widgets/custom_back_button.dart';
-import 'package:ketaby/features/profilee/presentation/views/widgets/update_profile_view_body.dart';
+import 'package:ketaby/features/profile/presentation/views/widgets/update_profile_view_body.dart';
 
 import '../../data/model/profile_model.dart';
 import '../cubits/update_user_profile_cubit/update_user_profile_cubit.dart';

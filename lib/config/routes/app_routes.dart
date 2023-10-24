@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ketaby/features/books_view/presentation/views/books_view.dart';
 import 'package:ketaby/features/layout/presentation/views/animated_drawer_view.dart';
 
 import '../../core/animations/page_fade_transition.dart';
@@ -18,11 +17,12 @@ import '../../features/cart_view/presentation/cubits/update_cart_cubit/update_ca
 import '../../features/cart_view/presentation/views/cart_view.dart';
 import '../../features/onboarding/presentation/cubit/onboarding_cubit.dart';
 import '../../features/onboarding/presentation/views/onboarding_view.dart';
-import '../../features/profilee/data/model/profile_model.dart';
-import '../../features/profilee/data/repository/profile_repository_implementation.dart';
-import '../../features/profilee/presentation/cubits/update_user_profile_cubit/update_user_profile_cubit.dart';
-import '../../features/profilee/presentation/views/profile_view.dart';
-import '../../features/profilee/presentation/views/update_profile_view.dart';
+import '../../features/profile/data/model/profile_model.dart';
+import '../../features/profile/data/repository/profile_repository_implementation.dart';
+import '../../features/profile/presentation/cubits/update_user_profile_cubit/update_user_profile_cubit.dart';
+import '../../features/profile/presentation/views/profile_view.dart';
+import '../../features/profile/presentation/views/update_profile_view.dart';
+
 import '../../features/splash/presentation/views/splash_view.dart';
 
 

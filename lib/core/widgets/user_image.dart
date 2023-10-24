@@ -7,8 +7,10 @@ import 'package:ketaby/config/routes/app_routes.dart';
 import 'package:ketaby/core/utils/app_colors.dart';
 import 'package:ketaby/core/utils/app_constants.dart';
 
-import '../../features/profilee/presentation/cubits/get_user_profile_cubit/get_user_profile_cubit.dart';
-import '../../features/profilee/presentation/cubits/get_user_profile_cubit/get_user_profile_state.dart';
+import '../../features/profile/presentation/cubits/get_user_profile_cubit/get_user_profile_cubit.dart';
+import '../../features/profile/presentation/cubits/get_user_profile_cubit/get_user_profile_state.dart';
+
+
 
 class UserImage extends StatelessWidget {
   const UserImage({

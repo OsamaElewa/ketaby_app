@@ -5,7 +5,7 @@ import 'package:ketaby/core/api/api_services.dart';
 import 'package:ketaby/core/api/end_points.dart';
 import 'package:ketaby/core/errors/failures.dart';
 import 'package:ketaby/core/utils/app_constants.dart';
-import 'package:ketaby/features/profilee/data/repository/profile_repository.dart';
+import 'package:ketaby/features/profile/data/repository/profile_repository.dart';
 
 import '../model/profile_model.dart';
 

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ketaby/core/errors/failures.dart';
 import 'package:ketaby/core/functions/show_snack_bar.dart';
-import 'package:ketaby/features/profilee/presentation/cubits/update_user_profile_cubit/update_user_profile_state.dart';
+import 'package:ketaby/features/profile/presentation/cubits/update_user_profile_cubit/update_user_profile_state.dart';
 
 import '../../../data/model/profile_model.dart';
 import '../../../data/repository/profile_repository.dart';
