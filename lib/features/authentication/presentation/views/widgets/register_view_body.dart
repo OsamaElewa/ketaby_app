@@ -5,8 +5,10 @@ import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 import '../../../../../config/routes/app_routes.dart';
 import '../../../../../core/functions/show_snack_bar.dart';
+import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_constants.dart';
 import '../../../../../core/utils/app_strings.dart';
+import '../../../../../core/utils/app_styles.dart';
 import '../../../../../core/widgets/gradient_button.dart';
 import '../../../../../core/widgets/title_and_subtitle.dart';
 import '../../cubits/register_cubit/register_cubit.dart';
@@ -57,7 +59,9 @@ class RegisterViewBody extends StatelessWidget {
                         },
                       ),
                       GradientButton(
-                        title: Text(AppStrings.register),
+                        title: Text(AppStrings.register,style: AppStyles.textStyle16.copyWith(
+                          color: AppColors.white,)
+                        ),
                         onPressed: () {
                           if (RegisterCubit.get(context)
                               .formKey
