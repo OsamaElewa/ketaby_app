@@ -8,6 +8,46 @@ abstract class AppStyles {
     fontSize: 10.sp,
     color: AppColors.white,
   );
+
+  static final appBarTextStyle = TextStyle(
+    color: AppColors.indigo,
+  );
+
+  static final productNameStyle = TextStyle(
+    fontSize: 18.sp,
+    color: AppColors.black,
+    fontWeight: FontWeight.bold
+  );
+
+  static final descriptionTitleStyle = TextStyle(
+      fontSize: 18.sp,
+      color: AppColors.black,
+      fontWeight: FontWeight.bold
+  );
+
+  static final productDescriptionStyle = TextStyle(
+      fontSize: 18.sp,
+      color: AppColors.grey,
+  );
+
+  static final productPriceStyle = TextStyle(
+    decoration: TextDecoration.lineThrough,
+    fontSize: 15.sp,
+    color: AppColors.grey,
+  );
+
+  static final productPriceAfterDiscountStyle = TextStyle(
+    decoration: TextDecoration.lineThrough,
+    fontSize: 15.sp,
+    color: AppColors.indigo,
+    fontWeight: FontWeight.bold
+  );
+
+  static final productCategoryStyle = TextStyle(
+      fontSize: 18.sp,
+      color: AppColors.grey,
+  );
+
   static final textStyle14 = TextStyle(
     fontSize: 12.sp,
   );

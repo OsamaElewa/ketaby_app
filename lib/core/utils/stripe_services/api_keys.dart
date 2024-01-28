@@ -1,0 +1,6 @@
+class ApiKeys{
+  static String secretKey = 'sk_test_51O96shAujFCxLEKyt7HCj0HYpvSVnn1bzpV2H5mSuBUODVfNH2Rxw7ZbcndeDdgRsSgiJ6CVISgEI1iCsvIPSYIF005ti50k29';
+  static String publishableKey = 'pk_test_51O96shAujFCxLEKyMrw9X818ty1Uvyku8svLXoEvZzB89IVHoiEvzTkIotmu6Q0Ngy4VuhCt96Cv1acw3wKfpkJo007LEFtCDf';
+  static String clientIdKey = 'ASdY8Bg1ZisL45KA7-HuruMRDMrjkdYr2x3nJtUA5SA14rO2GuJ_SJk9FaepAT6mPv0kUFU2PCDWYwnq';
+  static String secretPaypalKey = 'EGTUjdrma2r7rpPxYt6OxNZFux3ytWbbfuDivqzq504JBsNj51_kp9FwHzt734SNLzivJEPu679eptC7';
+}

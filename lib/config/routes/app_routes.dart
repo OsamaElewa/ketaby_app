@@ -1,5 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ketaby/core/utils/stripe_services/api_services/api_services_implementation.dart';
+import 'package:ketaby/core/utils/stripe_services/stripe_service.dart';
+import 'package:ketaby/features/check_out_view/data/repository/payment_repository/payment_repository_implementation.dart';
+import 'package:ketaby/features/check_out_view/presentation/cubits/payment_cubit/payment_cubit.dart';
+import 'package:ketaby/features/check_out_view/presentation/views/check_out_view.dart';
+import 'package:ketaby/features/favorite_view/data/repository/favorite_repository_implementation.dart';
+import 'package:ketaby/features/favorite_view/presentation/cubits/remove_from_fav_cubit.dart';
+import 'package:ketaby/features/favorite_view/presentation/views/favorite_view.dart';
 import 'package:ketaby/features/layout/presentation/views/animated_drawer_view.dart';
 
 import '../../core/animations/page_fade_transition.dart';
@@ -15,6 +23,8 @@ import '../../features/cart_view/data/repository/cart_repository_implementation.
 import '../../features/cart_view/presentation/cubits/remove_from_cart_cubit/remove_from_cart_cubit.dart';
 import '../../features/cart_view/presentation/cubits/update_cart_cubit/update_cart_cubit.dart';
 import '../../features/cart_view/presentation/views/cart_view.dart';
+import '../../features/check_out_view/data/repository/check_out_repository/check_out_repository_implementation.dart';
+import '../../features/check_out_view/presentation/cubits/check_out_user_cubit/check_out_user_cubit.dart';
 import '../../features/onboarding/presentation/cubit/onboarding_cubit.dart';
 import '../../features/onboarding/presentation/views/onboarding_view.dart';
 import '../../features/profile/data/model/profile_model.dart';
@@ -34,6 +44,8 @@ class Routes {
   static const String layoutView = '/layout_view';
   static const String bookView = '/book_view';
   static const String cartView = '/cart_view';
+  static const String favView = '/fav_view';
+  static const String checkoutView = '/checkout_view';
   static const String profileView = '/profile_view';
   static const String updateProfileView = '/update_profile_view';
   static const String doctorDetailsView = '/doctor_details_view';
@@ -97,6 +109,33 @@ class AppRoutes {
             ),
           ], child: const CartView()),
         );
+
+
+      case Routes.favView:
+        return PageSlideTransition(
+          direction: AxisDirection.left,
+          page: BlocProvider(
+            create: (context) => RemoveFromFavCubit(FavoriteRepositoryImplementation(ApiServicesImplementation())),
+              child: const FavoriteView()),
+        );
+
+      case Routes.checkoutView:
+        return PageSlideTransition(
+          direction: AxisDirection.left,
+          page: MultiBlocProvider(providers: [
+            BlocProvider(
+              create: (context) =>
+              CheckOutCubit(CheckOutRepositoryImplementation(ApiServicesImplementation()))..getCheckOut(),
+            ),
+            BlocProvider(
+              create: (context) =>
+                  PaymentCubit(
+                    PaymentRepositoryImplementation(StripeService(StripeApiServicesImplementation())),
+                  ),
+            ),
+          ], child: const CheckOutView()),
+        );
+
       case Routes.profileView:
         return PageSlideTransition(
           direction: AxisDirection.left,

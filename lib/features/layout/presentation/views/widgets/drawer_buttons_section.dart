@@ -39,11 +39,7 @@ class DrawerButtonsSection extends StatelessWidget {
           title: 'Favourite',
           icon: IconBroken.Heart,
           onTap: () {
-            Navigator.push(context, MaterialPageRoute(
-              builder: (context) {
-                return const FavoriteView();
-              },
-            ));
+            Navigator.pushNamed(context, Routes.favView);
             AnimatedDrawerCubit.get(context).closeDrawer();
           },
         ),

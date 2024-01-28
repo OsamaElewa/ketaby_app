@@ -24,7 +24,7 @@ class OrderNowSection extends StatelessWidget {
     return BlocBuilder<CheckOutCubit, CheckOutState>(
   builder: (context, state) {
     return Container(
-      padding: EdgeInsets.all(10),
+      padding: const EdgeInsets.all(10),
       height: 90,
       decoration: BoxDecoration(
         color: Colors.indigo,
@@ -35,8 +35,8 @@ class OrderNowSection extends StatelessWidget {
         children: [
           Row(
             children: [
-              Text('Total price : ',style: TextStyle(color: Colors.white,fontSize: 17),),
-              Text('${CheckOutCubit.get(context).checkOutModel!.data!.total} L.E',style: TextStyle(color: Colors.white,fontSize: 17),)
+              const Text('Total price : ',style: TextStyle(color: Colors.white,fontSize: 17),),
+              Text('${CheckOutCubit.get(context).checkOutModel!.data!.total} L.E',style: const TextStyle(color: Colors.white,fontSize: 17),)
             ],
           ),
           OrderNowButton(
@@ -45,6 +45,7 @@ class OrderNowSection extends StatelessWidget {
             email: email,
             phone: phone,
             address: address,
+            total: CheckOutCubit.get(context).checkOutModel!.data!.total!,
           ),
         ],
       ),

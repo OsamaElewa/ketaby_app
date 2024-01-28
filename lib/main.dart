@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:ketaby/core/api/api_services_implementation.dart';
 import 'package:ketaby/features/books_view/data/repository/add_to_fav_repository_implementation.dart';
 import 'package:ketaby/features/books_view/data/repository/book_repository_implementation.dart';
@@ -12,6 +13,8 @@ import 'package:ketaby/features/check_out_view/data/repository/governorates_repo
 import 'package:ketaby/features/check_out_view/data/repository/order_repository/order_repository_implementation.dart';
 import 'package:ketaby/features/check_out_view/presentation/cubits/governorates_cubit/governorates_cubit.dart';
 import 'package:ketaby/features/check_out_view/presentation/cubits/order_cubit/order_cubit.dart';
+import 'package:ketaby/features/favorite_view/data/repository/favorite_repository_implementation.dart';
+import 'package:ketaby/features/favorite_view/presentation/cubits/favorite_cubit.dart';
 
 import 'package:ketaby/features/home/data/repository/best_seller_repository/best_seller_repository_implementation.dart';
 import 'package:ketaby/features/home/data/repository/category_repository/category_repository_implementation.dart';
@@ -22,20 +25,22 @@ import 'package:ketaby/features/home/presentation/cubits/category_cubit/category
 import 'package:ketaby/features/home/presentation/cubits/new_arrival_cubit/new_arrival_cubit.dart';
 import 'package:ketaby/features/home/presentation/cubits/slider_cubit/slider_cubit.dart';
 import 'package:ketaby/features/layout/presentation/cubits/animated_drawer_cubit/animated_drawer_cubit.dart';
-import 'package:ketaby/features/profile/data/repository/profile_repository.dart';
 
 
 import 'config/local/cache_helper.dart';
 import 'config/routes/app_routes.dart';
 import 'config/themes/app_theme.dart';
 import 'core/utils/app_constants.dart';
+import 'core/utils/stripe_services/api_keys.dart';
 import 'features/bloc_observer.dart';
 import 'features/profile/data/repository/profile_repository_implementation.dart';
 import 'features/profile/presentation/cubits/get_user_profile_cubit/get_user_profile_cubit.dart';
 
 
 void main() async{
+  Stripe.publishableKey = ApiKeys.publishableKey;
   WidgetsFlutterBinding.ensureInitialized();
+
   await CacheHelper.init();
   Bloc.observer=MyBlocObserver();
   AppConstants.token = CacheHelper.getString(key: 'token') ?? '';
@@ -73,6 +78,7 @@ class MyApp extends StatelessWidget {
               create: (context) => GetUserProfileCubit(ProfileRepositoryImplementation(ApiServicesImplementation()))..getUserProfile(),),
             BlocProvider(
               create: (context) => CartCubit(CartRepositoryImplementation(ApiServicesImplementation()))),
+            BlocProvider(create: (context) => FavoriteCubit(FavoriteRepositoryImplementation(ApiServicesImplementation())),),
             BlocProvider(
               create: (context) => GovernoratesCubit(GovernoratesRepositoryImplementation(ApiServicesImplementation()))..getGovernorates(),),
             // BlocProvider(

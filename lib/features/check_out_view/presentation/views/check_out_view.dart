@@ -27,16 +27,13 @@ class CheckOutView extends StatelessWidget {
         title: const Text('Check Out', style: TextStyle(color: Colors.indigo),),
         centerTitle: true,
       ),
-      body: BlocProvider(
-        create: (context) => CheckOutCubit(CheckOutRepositoryImplementation(ApiServicesImplementation()))..getCheckOut(),
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              children: [
-                CheckOutViewBody(),
-              ],
-            ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: [
+              CheckOutViewBody(),
+            ],
           ),
         ),
       ),

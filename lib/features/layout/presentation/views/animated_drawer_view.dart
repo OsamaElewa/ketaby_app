@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ketaby/features/favorite_view/presentation/cubits/favorite_cubit.dart';
 
 
 import '../../../../core/utils/app_constants.dart';
@@ -21,6 +22,7 @@ class _AnimatedDrawerViewState extends State<AnimatedDrawerView> {
   @override
   void initState() {
     CartCubit.get(context).getCart();
+    FavoriteCubit.get(context).getFavorite();
     super.initState();
   }
 

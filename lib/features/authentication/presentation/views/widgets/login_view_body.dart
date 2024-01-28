@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'package:ketaby/core/functions/show_progress_indicator.dart';
 
 import '../../../../../config/local/cache_helper.dart';
 import '../../../../../config/routes/app_routes.dart';
@@ -40,50 +40,48 @@ class LoginViewBody extends StatelessWidget {
               context: context, message: state.authenticationModel.message!);
         } else if (state is LoginFailureState) {
           showErrorSnackBar(context: context, message: state.error);
+          Navigator.pop(context);
+        }else if(state is LoginLoadingState){
+          showProgressIndicator(context);
         }
+
       },
       builder: (context, state) {
-        return ModalProgressHUD(
-          inAsyncCall: state is LoginLoadingState,
-          color: Colors.white,
-          opacity: 0.5,
-          progressIndicator: const CircularProgressIndicator(),
-          child: SafeArea(
-            child: Padding(
-              padding: EdgeInsets.all(AppConstants.defaultPadding),
-              child: Form(
-                key: LoginCubit.get(context).formKey,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const TitleAndSubtitle(
-                      subtitle: AppStrings.loginSubtitle,
-                      title: AppStrings.loginTitle,
-                    ),
-                    const LoginTextsFieldsSection(),
-                    const KeepMeLoggedIn(),
-                    NavigateToLoginOrRegister(
-                      textTitle: 'Don\'t have an account?',
-                      buttonTitle: AppStrings.register,
-                      onPressed: () {
-                        Navigator.pushNamed(context, Routes.registerView);
-                      },
-                    ),
-                    GradientButton(
-                      onPressed: () {
-                        if (LoginCubit.get(context)
-                            .formKey
-                            .currentState!
-                            .validate()) {
-                          LoginCubit.get(context).userLogin();
-                        }
-                      },
-                      title: Text(AppStrings.login,style: AppStyles.textStyle16.copyWith(
-                        color: AppColors.white,),
-                    ),
-                    )
-                  ],
-                ),
+        return SafeArea(
+          child: Padding(
+            padding: EdgeInsets.all(AppConstants.defaultPadding),
+            child: Form(
+              key: LoginCubit.get(context).formKey,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const TitleAndSubtitle(
+                    subtitle: AppStrings.loginSubtitle,
+                    title: AppStrings.loginTitle,
+                  ),
+                  const LoginTextsFieldsSection(),
+                  const KeepMeLoggedIn(),
+                  NavigateToLoginOrRegister(
+                    textTitle: AppStrings.doNotHaveAccountText,
+                    buttonTitle: AppStrings.register,
+                    onPressed: () {
+                      Navigator.pushNamed(context, Routes.registerView);
+                    },
+                  ),
+                  GradientButton(
+                    onPressed: () {
+                      if (LoginCubit.get(context)
+                          .formKey
+                          .currentState!
+                          .validate()) {
+                        LoginCubit.get(context).userLogin();
+                      }
+                    },
+                    title: Text(AppStrings.login,style: AppStyles.textStyle16.copyWith(
+                      color: AppColors.white,),
+                  ),
+                  )
+                ],
               ),
             ),
           ),

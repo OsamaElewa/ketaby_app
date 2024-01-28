@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ketaby/features/authentication/presentation/views/widgets/register_texts_fields_section.dart';
-import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 import '../../../../../config/routes/app_routes.dart';
+import '../../../../../core/functions/show_progress_indicator.dart';
 import '../../../../../core/functions/show_snack_bar.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_constants.dart';
@@ -29,50 +29,47 @@ class RegisterViewBody extends StatelessWidget {
           showSuccessSnackBar(
               context: context, message: state.authenticationModel.message!);
         } else if (state is RegisterFailureState) {
+          Navigator.pop(context);
           showErrorSnackBar(context: context, message: state.error);
+        }else if(state is RegisterLoadingState){
+          showProgressIndicator(context);
         }
       },
       builder: (context, state) {
-        return ModalProgressHUD(
-          inAsyncCall: state is RegisterLoadingState,
-          color: Colors.white,
-          opacity: 0.5,
-          progressIndicator: const CircularProgressIndicator(),
-          child: SafeArea(
-            child: Padding(
-              padding: EdgeInsets.all(AppConstants.defaultPadding),
-              child: SingleChildScrollView(
-                child: Form(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const TitleAndSubtitle(
-                        subtitle: AppStrings.registerSubtitle,
-                        title: AppStrings.registerTitle,
+        return SafeArea(
+          child: Padding(
+            padding: EdgeInsets.all(AppConstants.defaultPadding),
+            child: SingleChildScrollView(
+              child: Form(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const TitleAndSubtitle(
+                      subtitle: AppStrings.registerSubtitle,
+                      title: AppStrings.registerTitle,
+                    ),
+                    const RegisterTextsFieldsSection(),
+                    NavigateToLoginOrRegister(
+                      textTitle: AppStrings.alreadyHaveAccountText,
+                      buttonTitle: AppStrings.login,
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                    ),
+                    GradientButton(
+                      title: Text(AppStrings.register,style: AppStyles.textStyle16.copyWith(
+                        color: AppColors.white,)
                       ),
-                      const RegisterTextsFieldsSection(),
-                      NavigateToLoginOrRegister(
-                        textTitle: 'Already have an account?',
-                        buttonTitle: AppStrings.login,
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                      ),
-                      GradientButton(
-                        title: Text(AppStrings.register,style: AppStyles.textStyle16.copyWith(
-                          color: AppColors.white,)
-                        ),
-                        onPressed: () {
-                          if (RegisterCubit.get(context)
-                              .formKey
-                              .currentState!
-                              .validate()) {
-                            RegisterCubit.get(context).userRegister();
-                          }
-                        },
-                      ),
-                    ],
-                  ),
+                      onPressed: () {
+                        if (RegisterCubit.get(context)
+                            .formKey
+                            .currentState!
+                            .validate()) {
+                          RegisterCubit.get(context).userRegister();
+                        }
+                      },
+                    ),
+                  ],
                 ),
               ),
             ),

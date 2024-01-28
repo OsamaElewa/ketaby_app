@@ -25,4 +25,10 @@ class EndPoints {
   static const String getAllAppointment = 'appointment/index';
   static const String bookAppointment = '/appointment/store';
   static const String updateUserProfile = 'update-profile';
+
+  ///////////////////////////////////////////////////////
+  ///EndPoint for stripe services
+  static const String stripeBaseUrl = 'https://api.stripe.com/v1/';
+  static const String paymentIntent = 'payment_intents';
+  static const String ephemeralKeys = 'ephemeral_keys';
 }

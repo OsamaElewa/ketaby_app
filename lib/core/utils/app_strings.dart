@@ -1,11 +1,15 @@
 class AppStrings {
   static const String noRouteFound = 'No Route Found';
   static const String login = 'Login';
+  static const String doNotHaveAccountText = 'Don\'t have an account?';
+  static const String alreadyHaveAccountText = 'Already have an account?';
   static const String logout = 'Logout';
   static const String registerTitle = 'Let’s get started!';
   static const String registerSubtitle =
       'create an account and start booking now.';
   static const String profile = 'Profile';
+  static const String booksText = 'Books';
+  static const String descriptionText = 'Description';
   static const String updateProfile = 'Update Profile';
   static const String register = 'Register';
   static const String loginTitle = 'Welcome Back!';

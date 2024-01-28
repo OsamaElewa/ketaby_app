@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ketaby/config/icons/icons_broken.dart';
 import 'package:ketaby/features/cart_view/data/models/cart_model.dart';
 import 'package:ketaby/features/cart_view/presentation/cubits/cart_cubit.dart';
@@ -14,32 +15,32 @@ class CartListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Padding(
-      padding: const EdgeInsets.only(top: 10,right: 10,left: 10),
+      padding: EdgeInsets.only(top: 10.h,right: 10.w,left: 10.w),
       child: Container(
-        padding: const EdgeInsets.only(top: 10,left: 20,bottom: 10,),
-        height: 150,
+        padding: EdgeInsets.only(top: 10.h,left: 20.w,bottom: 10.h,),
+        height: 150.h,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
+            borderRadius: BorderRadius.circular(15.r),
             border: Border.all(color: AppColors.indigo)
         ),
         child: Row(
           children: [
-            Image(image: NetworkImage(cartItems.itemProductImage!)),
-            const SizedBox(width: 15,),
+            Image(image: NetworkImage(cartItems.itemProductImage!),height: 110.h,width: 110.w,),
+            SizedBox(width: 15.w,),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(
-                  width: 175,
+                  width: 120.w,
                   child: Text(cartItems.itemProductName!,
-                    style: const TextStyle(color: Colors.black,
-                        fontWeight: FontWeight.bold,fontSize: 18),
+                    style: TextStyle(color: Colors.black,
+                        fontWeight: FontWeight.bold,fontSize: 16.sp),
                     maxLines: 2,overflow: TextOverflow.ellipsis,
                   ),
                 ),
-                const SizedBox(height: 10,),
+                SizedBox(height: 10.h,),
                 Text(cartItems.itemProductPrice!),
-                const SizedBox(height: 10,),
+                SizedBox(height: 10.h,),
               ],
             ),
             Column(

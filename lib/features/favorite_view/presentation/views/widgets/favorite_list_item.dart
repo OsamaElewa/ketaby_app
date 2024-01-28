@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ketaby/config/icons/icons_broken.dart';
 import 'package:ketaby/features/favorite_view/presentation/cubits/favorite_cubit.dart';
+import 'package:ketaby/features/favorite_view/presentation/cubits/remove_from_fav_cubit.dart';
 
 import '../../../../../core/utils/app_colors.dart';
 import '../../../data/models/favorite_model.dart';
@@ -12,18 +14,18 @@ class FavoriteListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Padding(
-      padding: const EdgeInsets.only(top: 10,right: 20,left: 20),
+      padding:  EdgeInsets.only(top: 10.h,right: 20.w,left: 20.w),
       child: Container(
-        padding: const EdgeInsets.only(top: 10,left: 20,bottom: 10),
-        height: 150,
+        padding: EdgeInsets.only(top: 10.h,left: 20.w,bottom: 10.h),
+        height: 150.h,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
+            borderRadius: BorderRadius.circular(15.r),
             border: Border.all(color: AppColors.indigo)
         ),
         child: Row(
           children: [
-            Image(image: NetworkImage(favorite.image!)),
-            const SizedBox(width: 15,),
+            Image(image: NetworkImage(favorite.image!),height: 110.h,width: 110.w,),
+            SizedBox(width: 15.w,),
             Expanded(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -32,10 +34,10 @@ class FavoriteListItem extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(
-                        width: 175,
+                        width: 120,
                         child: Text(favorite.name!,
-                          style: const TextStyle(color: Colors.black,
-                              fontWeight: FontWeight.bold,fontSize: 18),
+                          style: TextStyle(color: Colors.black,
+                              fontWeight: FontWeight.bold,fontSize: 16.sp),
                           maxLines: 2,overflow: TextOverflow.ellipsis,
                         ),
                       ),
@@ -51,7 +53,9 @@ class FavoriteListItem extends StatelessWidget {
                     children: [
                       IconButton(
                           onPressed: (){
-                            FavoriteCubit.get(context).removeFromFav(productId: favorite.id!);
+                            RemoveFromFavCubit.get(context).removeFromFav(productId: favorite.id!, context: context).then((value) {
+                              FavoriteCubit.get(context).getFavorite();
+                            });
                           },
                           icon: const Icon(IconBroken.Heart,color: Colors.red,)),
                       const Spacer(),
